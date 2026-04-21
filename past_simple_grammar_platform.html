@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Past Simple Grammar Practice</title>
+  <style>
+    :root{
+      --bg1:#0f172a;
+      --bg2:#1e293b;
+      --card:#ffffff;
+      --ink:#132033;
+      --soft:#e2e8f0;
+      --accent:#2563eb;
+      --accent2:#7c3aed;
+      --ok:#15803d;
+      --bad:#b91c1c;
+      --warn:#b45309;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(135deg,var(--bg1),var(--bg2));
+      color:#fff;
+      line-height:1.45;
+    }
+    .wrap{
+      max-width:1200px;
+      margin:0 auto;
+      padding:28px 18px 40px;
+    }
+    .hero{
+      background:linear-gradient(135deg, rgba(37,99,235,.95), rgba(124,58,237,.92));
+      border-radius:24px;
+      padding:26px 22px;
+      box-shadow:0 16px 35px rgba(0,0,0,.24);
+      margin-bottom:22px;
+    }
+    .hero h1{
+      margin:0 0 10px;
+      font-size:2rem;
+    }
+    .hero p{
+      margin:0;
+      font-size:1.02rem;
+      max-width:950px;
+    }
+    .toolbar{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+      margin:18px 0 20px;
+    }
+    .scorebox{
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:16px;
+      padding:12px 16px;
+      min-width:220px;
+      font-weight:700;
+    }
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+    button{
+      border:none;
+      border-radius:14px;
+      padding:13px 18px;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      transition:.18s ease;
+    }
+    .primary{
+      background:#fff;
+      color:#16326b;
+    }
+    .secondary{
+      background:#cbd5e1;
+      color:#0f172a;
+    }
+    button:hover{transform:translateY(-1px)}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
+      gap:18px;
+    }
+    .card{
+      background:var(--card);
+      color:var(--ink);
+      border-radius:22px;
+      padding:20px 18px;
+      box-shadow:0 16px 36px rgba(0,0,0,.2);
+    }
+    .card h2{
+      margin:0 0 6px;
+      font-size:1.25rem;
+      color:#102443;
+    }
+    .card .subtitle{
+      margin:0 0 16px;
+      color:#475569;
+      font-size:.97rem;
+    }
+    .item{
+      padding:12px 0;
+      border-top:1px solid #e5e7eb;
+    }
+    .item:first-of-type{
+      border-top:none;
+      padding-top:0;
+    }
+    .num{
+      display:inline-block;
+      min-width:30px;
+      font-weight:800;
+      color:var(--accent2);
+    }
+    .sentence{
+      font-size:1rem;
+    }
+    select, input[type="text"]{
+      border:2px solid #cbd5e1;
+      border-radius:10px;
+      padding:9px 10px;
+      font-size:1rem;
+      margin:6px 4px;
+      background:#fff;
+      color:#111827;
+      min-width:120px;
+    }
+    input.short{width:135px}
+    input.medium{width:180px}
+    .feedback{
+      display:inline-block;
+      margin-left:8px;
+      font-weight:800;
+      font-size:1rem;
+    }
+    .correct{
+      color:var(--ok)!important;
+      border-color:#86efac!important;
+      background:#f0fdf4!important;
+    }
+    .incorrect{
+      color:var(--bad)!important;
+      border-color:#fca5a5!important;
+      background:#fef2f2!important;
+    }
+    .pill{
+      display:inline-block;
+      background:#dbeafe;
+      color:#1d4ed8;
+      font-weight:700;
+      padding:6px 10px;
+      border-radius:999px;
+      margin:4px 6px 0 0;
+      font-size:.9rem;
+    }
+    .note{
+      margin-top:14px;
+      background:#fff7ed;
+      border-left:5px solid #f59e0b;
+      color:#7c2d12;
+      padding:12px 14px;
+      border-radius:12px;
+      font-size:.96rem;
+    }
+    .full{
+      grid-column:1 / -1;
+    }
+    .section-title{
+      margin:0 0 10px;
+      font-size:1.15rem;
+    }
+    .mini-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:12px;
+      margin-top:10px;
+    }
+    .mini{
+      background:#f8fafc;
+      border:1px solid #e2e8f0;
+      border-radius:16px;
+      padding:12px;
+    }
+    .mini b{color:#1e3a8a}
+    .footer-note{
+      text-align:center;
+      color:#dbeafe;
+      margin-top:18px;
+      font-size:.95rem;
+    }
+    @media (max-width:640px){
+      .hero h1{font-size:1.55rem}
+      .scorebox{width:100%}
+      .actions{width:100%}
+      .actions button{flex:1 1 100%}
+      select, input[type="text"]{width:100%; margin-left:0; margin-right:0}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>Past Simple Grammar Practice</h1>
+      <p>Complete the activities to practice the <b>grammar</b> of the past simple: affirmative sentences, negatives, questions, regular and irregular verbs, and short answers. Then click <b>Check Answers</b> to see which ones are correct.</p>
+    </section>
+
+    <div class="toolbar">
+      <div class="scorebox">Score: <span id="score">0 / 0</span></div>
+      <div class="actions">
+        <button class="primary" onclick="checkAnswers()">Check Answers</button>
+        <button class="secondary" onclick="resetAll()">Reset</button>
+      </div>
+    </div>
+
+    <div class="grid">
+      <section class="card">
+        <h2>1. Choose the correct verb form</h2>
+        <p class="subtitle">Focus: affirmative past simple</p>
+
+        <div class="item">
+          <span class="num">1.</span>
+          <span class="sentence">Yesterday, Laura 
+            <select data-answer="walked">
+              <option value="">Select</option>
+              <option>walk</option>
+              <option>walked</option>
+              <option>was walk</option>
+              <option>walking</option>
+            </select>
+            to university.
+          </span>
+          <span class="feedback"></span>
+        </div>
+
+        <div class="item">
+          <span class="num">2.</span>
+          <span class="sentence">My friends 
+            <select data-answer="watched">
+              <option value="">Select</option>
+              <option>watch</option>
+              <option>watched</option>
+              <option>did watched</option>
+              <option>were watch</option>
+            </select>
+            a movie last night.
+          </span>
+          <span class="feedback"></span>
+        </div>
+
+        <div class="item">
+          <span class="num">3.</span>
+          <span class="sentence">Daniel 
+            <select data-answer="went">
+              <option value="">Select</option>
+              <option>goed</option>
+              <option>go</option>
+              <option>went</option>
+              <option>did go</option>
+            </select>
+            to Bogotá on Saturday.
+          </span>
+          <span class="feedback"></span>
+        </div>
+
+        <div class="item">
+          <span class="num">4.</span>
+          <span class="sentence">They 
+            <select data-answer="had">
+              <option value="">Select</option>
+              <option>haved</option>
+              <option>have</option>
+              <option>had</option>
+              <option>did had</option>
+            </select>
+            lunch at 1:00 p.m.
+          </span>
+          <span class="feedback"></span>
+        </div>
+
+        <div class="item">
+          <span class="num">5.</span>
+          <span class="sentence">I 
+            <select data-answer="studied">
+              <option value="">Select</option>
+              <option>studyed</option>
+              <option>studied</option>
+              <option>study</option>
+              <option>did studyed</option>
+            </select>
+            English for two hours.
+          </span>
+          <span class="feedback"></span>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>2. Complete the negative sentences</h2>
+        <p class="subtitle">Focus: did not + base verb</p>
+
+        <div class="item">
+          <span class="num">6.</span>
+          <span class="sentence">We <input class="short" type="text" data-answer="didn't"> play tennis yesterday.</span>
+          <span class="feedback"></span>
+        </div>
+        <div class="item">
+          <span class="num">7.</span>
+          <span class="sentence">She didn’t <input class="short" type="text" data-answer="cook"> dinner last night.</span>
+          <span class="feedback"></span>
+        </div>
+        <div class="item">
+          <span class="num">8.</span>
+          <span class="sentence">I <input class="short" type="text" data-answer="didn't"> see my teacher at school.</span>
+          <span class="feedback"></span>
+        </div>
+        <div class="item">
+          <span class="num">9.</span>
+          <span class="sentence">They didn’t <input class="short" type="text" data-answer="buy"> new shoes.</span>
+          <span class="feedback"></span>
+        </div>
+        <div class="item">
+          <span class="num">10.</span>
+          <span class="sentence">He <input class="short" type="text" data-answer="didn't"> get up early on Sunday.</span>
+          <span class="feedback"></span>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>3. Build past simple questions</h2>
+        <p class="subtitle">Focus: Did + subject + base verb</p>
+
+        <div class="item">
+          <span class="num">11.</span>
+          <span class="sentence">
+            <select data-answer="Did">
+              <option value="">Select</option>
+              <option>Was</option>
+              <option>Did</option>
+              <option>Do</option>
+              <option>Were</option>
+            </select>
+            you 
+            <select data-answer="visit">
+              <option value="">Select</option>
+              <option>visited</option>
+              <option>visit</option>
+              <option>visiting</option>
+              <option>to visit</option>
+            </select>
+            your grandmother?
+          </span>
+          <span class="feedback"></span>
+        </div>
+
+        <div class="item">
+          <span class="num">12.</span>
+          <span class="sentence">
+            <select data-answer="Did">
+              <option value="">Select</option>
+              <option>Do</option>
+              <option>Did</option>
+              <option>Was</option>
+              <option>Are</option>
+            </select>
+            they 
+            <select data-answer="finish">
+              <option value="">Select</option>
+              <option>finished</option>
+              <option>finish</option>
+              <option>finishing</option>
+              <option>to finish</option>
+            </select>
+            the project?
+          </span>
+          <span class="feedback"></span>
+        </div>
+
+        <div class="item">
+          <span class="num">13.</span>
+          <span class="sentence">
+            <select data-answer="Did">
+              <option value="">Select</option>
+              <option>Did</option>
+              <option>Were</option>
+              <option>Do</option>
+              <option>Was</option>
+            </select>
+            she 
+            <select data-answer="call">
+              <option value="">Select</option>
+              <option>called</option>
+              <option>call</option>
+              <option>calls</option>
+              <option>calling</option>
+            </select>
+            you last night?
+          </span>
+          <span class="feedback"></span>
+        </div>
+
+        <div class="item">
+          <span class="num">14.</span>
+          <span class="sentence">
+            <select data-answer="Did">
+              <option value="">Select</option>
+              <option>Did</option>
+              <option>Do</option>
+              <option>Was</option>
+              <option>Were</option>
+            </select>
+            he 
+            <select data-answer="eat">
+              <option value="">Select</option>
+              <option>ate</option>
+              <option>eat</option>
+              <option>eats</option>
+              <option>eating</option>
+            </select>
+            breakfast?
+          </span>
+          <span class="feedback"></span>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>4. Regular or irregular?</h2>
+        <p class="subtitle">Choose the correct past form</p>
+
+        <div class="item">
+          <span class="num">15.</span>
+          <span class="sentence">play →
+            <select data-answer="played">
+              <option value="">Select</option>
+              <option>played</option>
+              <option>playd</option>
+              <option>plaid</option>
+              <option>plays</option>
+            </select>
+          </span>
+          <span class="feedback"></span>
+        </div>
+
+        <div class="item">
+          <span class="num">16.</span>
+          <span class="sentence">see →
+            <select data-answer="saw">
+              <option value="">Select</option>
+              <option>seed</option>
+              <option>saw</option>
+              <option>seen</option>
+              <option>sees</option>
+            </select>
+          </span>
+          <span class="feedback"></span>
+        </div>
+
+        <div class="item">
+          <span class="num">17.</span>
+          <span class="sentence">buy →
+            <select data-answer="bought">
+              <option value="">Select</option>
+              <option>buyed</option>
+              <option>bought</option>
+              <option>buy</option>
+              <option>buys</option>
+            </select>
+          </span>
+          <span class="feedback"></span>
+        </div>
+
+        <div class="item">
+          <span class="num">18.</span>
+          <span class="sentence">study →
+            <select data-answer="studied">
+              <option value="">Select</option>
+              <option>studyed</option>
+              <option>studied</option>
+              <option>studys</option>
+              <option>studying</option>
+            </select>
+          </span>
+          <span class="feedback"></span>
+        </div>
+
+        <div class="item">
+          <span class="num">19.</span>
+          <span class="sentence">take →
+            <select data-answer="took">
+              <option value="">Select</option>
+              <option>taked</option>
+              <option>took</option>
+              <option>taken</option>
+              <option>takes</option>
+            </select>
+          </span>
+          <span class="feedback"></span>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>5. Rewrite the sentence correctly</h2>
+        <p class="subtitle">Write the correct past simple form</p>
+
+        <div class="item">
+          <span class="num">20.</span>
+          <span class="sentence">Yesterday / my sister / go / to the bank → </span>
+          <input class="medium" type="text" data-answer="went">
+          <span class="feedback"></span>
+        </div>
+        <div class="item">
+          <span class="num">21.</span>
+          <span class="sentence">Last night / we / not watch / TV → </span>
+          <input class="medium" type="text" data-answer="didn't watch">
+          <span class="feedback"></span>
+        </div>
+        <div class="item">
+          <span class="num">22.</span>
+          <span class="sentence">___ you / do / your homework? → </span>
+          <input class="medium" type="text" data-answer="did">
+          <span class="feedback"></span>
+        </div>
+        <div class="item">
+          <span class="num">23.</span>
+          <span class="sentence">My father / drive / to work / on Monday → </span>
+          <input class="medium" type="text" data-answer="drove">
+          <span class="feedback"></span>
+        </div>
+        <div class="item">
+          <span class="num">24.</span>
+          <span class="sentence">They / not be / at home / last night → </span>
+          <input class="medium" type="text" data-answer="weren't">
+          <span class="feedback"></span>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2>6. Short answers</h2>
+        <p class="subtitle">Choose the best short answer</p>
+
+        <div class="item">
+          <span class="num">25.</span>
+          <span class="sentence">Did you study for the exam? —
+            <select data-answer="Yes, I did.">
+              <option value="">Select</option>
+              <option>Yes, I studied.</option>
+              <option>Yes, I did.</option>
+              <option>Yes, I do.</option>
+              <option>Yes, I was.</option>
+            </select>
+          </span>
+          <span class="feedback"></span>
+        </div>
+
+        <div class="item">
+          <span class="num">26.</span>
+          <span class="sentence">Did she arrive late? —
+            <select data-answer="No, she didn't.">
+              <option value="">Select</option>
+              <option>No, she doesn't.</option>
+              <option>No, she didn't.</option>
+              <option>No, she wasn't.</option>
+              <option>No, she not.</option>
+            </select>
+          </span>
+          <span class="feedback"></span>
+        </div>
+
+        <div class="item">
+          <span class="num">27.</span>
+          <span class="sentence">Were they tired after the trip? —
+            <select data-answer="Yes, they were.">
+              <option value="">Select</option>
+              <option>Yes, they did.</option>
+              <option>Yes, they were.</option>
+              <option>Yes, they was.</option>
+              <option>Yes, they are.</option>
+            </select>
+          </span>
+          <span class="feedback"></span>
+        </div>
+      </section>
+
+      <section class="card full">
+        <h2 class="section-title">Useful grammar reminders</h2>
+        <div class="mini-grid">
+          <div class="mini"><b>Affirmative:</b> Subject + past verb<br><span class="pill">She visited</span> <span class="pill">They went</span></div>
+          <div class="mini"><b>Negative:</b> Subject + didn’t + base verb<br><span class="pill">He didn’t play</span></div>
+          <div class="mini"><b>Question:</b> Did + subject + base verb?<br><span class="pill">Did you call?</span></div>
+          <div class="mini"><b>Be in the past:</b> was / were<br><span class="pill">I was</span> <span class="pill">They were</span></div>
+        </div>
+        <div class="note">This platform checks whether the answer is correct, but it does not reveal the correct answer automatically. That way, students practice first and reflect on the form.</div>
+      </section>
+    </div>
+
+    <p class="footer-note">Interactive grammar practice for Past Simple</p>
+  </div>
+
+  <script>
+    function normalize(value){
+      return value
+        .toLowerCase()
+        .replace(/’/g, "'")
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    function markElement(el, isCorrect){
+      el.classList.remove('correct','incorrect');
+      el.classList.add(isCorrect ? 'correct' : 'incorrect');
+      const fb = el.closest('.item').querySelector('.feedback');
+      fb.textContent = isCorrect ? '✓ Correct' : '✗ Incorrect';
+      fb.style.color = isCorrect ? '#15803d' : '#b91c1c';
+    }
+
+    function clearMark(el){
+      el.classList.remove('correct','incorrect');
+      const fb = el.closest('.item').querySelector('.feedback');
+      fb.textContent = '';
+    }
+
+    function checkAnswers(){
+      const all = Array.from(document.querySelectorAll('[data-answer]'));
+      let correct = 0;
+
+      all.forEach(el => {
+        const answer = normalize(el.dataset.answer);
+        const userValue = normalize(el.value || '');
+        let isCorrect = false;
+
+        if(answer.includes('|')){
+          const options = answer.split('|').map(v => normalize(v));
+          isCorrect = options.includes(userValue);
+        }else{
+          isCorrect = userValue === answer;
+        }
+
+        if(userValue === ''){
+          isCorrect = false;
+        }
+
+        markElement(el, isCorrect);
+        if(isCorrect) correct++;
+      });
+
+      document.getElementById('score').textContent = `${correct} / ${all.length}`;
+    }
+
+    function resetAll(){
+      document.querySelectorAll('select').forEach(s => s.selectedIndex = 0);
+      document.querySelectorAll('input[type="text"]').forEach(i => i.value = '');
+      document.querySelectorAll('[data-answer]').forEach(clearMark);
+      document.getElementById('score').textContent = '0 / 0';
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+  </script>
+</body>
+</html>
